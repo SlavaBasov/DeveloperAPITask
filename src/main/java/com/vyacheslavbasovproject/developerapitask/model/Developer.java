@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 @Entity
@@ -18,8 +19,14 @@ public class Developer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank
+    @Size(min=2, max = 50)
+    @Pattern(regexp = "^[a-z].+")
+    @Column(unique = true, nullable = false)
     private String name;
 
+    @Email
+    @Column(unique = true, nullable = false)
     private String email;
 
     public Developer(String name, String email) {
