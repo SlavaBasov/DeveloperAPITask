@@ -1,5 +1,6 @@
 package com.vyacheslavbasovproject.developerapitask.service.impl;
 
+import com.vyacheslavbasovproject.developerapitask.exceptions.DeveloperNotFoundException;
 import com.vyacheslavbasovproject.developerapitask.model.Developer;
 import com.vyacheslavbasovproject.developerapitask.repository.DeveloperRepository;
 import com.vyacheslavbasovproject.developerapitask.service.DeveloperService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DeveloperServiceImpl implements DeveloperService {
@@ -29,8 +31,15 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
-    public Developer findDeveloper(Long id) {
-        return null;
+    public Developer findDeveloper(Long id) throws DeveloperNotFoundException {
+        Developer developer;
+        Optional<Developer> developerOptional = developerRepository.findById(id);
+        if(developerOptional.isPresent()){
+            developer = developerOptional.get();
+        }else {
+            throw new DeveloperNotFoundException(String.format("Not found developer by id=%d",id));
+        }
+        return developer;
     }
 
     @Override

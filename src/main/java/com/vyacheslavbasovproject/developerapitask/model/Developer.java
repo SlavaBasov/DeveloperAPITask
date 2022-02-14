@@ -1,9 +1,6 @@
 package com.vyacheslavbasovproject.developerapitask.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
@@ -12,7 +9,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "developers")
-@Getter @Setter @NoArgsConstructor @ToString
+@Getter @Setter @NoArgsConstructor
+@ToString
 public class Developer {
 
     @Id
@@ -30,6 +28,12 @@ public class Developer {
     private String email;
 
     public Developer(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public Developer(Long id, String name, String email) {
+        this.id = id;
         this.name = name;
         this.email = email;
     }
