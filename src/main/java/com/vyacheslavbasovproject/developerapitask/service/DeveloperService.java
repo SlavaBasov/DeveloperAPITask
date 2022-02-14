@@ -6,8 +6,8 @@ import com.vyacheslavbasovproject.developerapitask.model.Developer;
 import java.util.List;
 
 public interface DeveloperService {
-    Developer createDeveloper(Developer developer);
-    boolean updateDeveloper(Developer developer);
+    boolean createDeveloper(Developer developer) throws DeveloperNotFoundException;
+    boolean updateDeveloper(Developer developer) throws DeveloperNotFoundException;
     Developer findDeveloper(Long id) throws DeveloperNotFoundException;
     Developer findDeveloper(String name);
     List<Developer> findAllDevelopers();

@@ -7,6 +7,7 @@ import com.vyacheslavbasovproject.developerapitask.service.DeveloperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,13 +22,22 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
-    public Developer createDeveloper(Developer developer) {
-        return null;
+    public boolean createDeveloper(Developer developer) throws DeveloperNotFoundException {
+        Developer foundDeveloper = findDeveloper(developer.getName());
+        if(foundDeveloper!=null){
+            return updateDeveloper(developer);
+        }
+        developerRepository.save(developer);
+        return true;
     }
 
     @Override
-    public boolean updateDeveloper(Developer developer) {
-        return false;
+    @Transactional
+    public boolean updateDeveloper(Developer developer) throws DeveloperNotFoundException {
+        Developer foundDeveloper = findDeveloper(developer.getId());
+        foundDeveloper.setName(developer.getName());
+        foundDeveloper.setEmail(developer.getEmail());
+        return true;
     }
 
     @Override
@@ -44,21 +54,23 @@ public class DeveloperServiceImpl implements DeveloperService {
 
     @Override
     public Developer findDeveloper(String name) {
-        return null;
+        return developerRepository.findByName(name);
     }
 
     @Override
     public List<Developer> findAllDevelopers() {
-        return null;
+        return developerRepository.findAll();
     }
 
     @Override
     public boolean deleteDeveloper(Long id) {
-        return false;
+        developerRepository.deleteById(id);
+        return true;
     }
 
     @Override
     public boolean deleteDeveloper(Developer developer) {
-        return false;
+        developerRepository.delete(developer);
+        return true;
     }
 }
