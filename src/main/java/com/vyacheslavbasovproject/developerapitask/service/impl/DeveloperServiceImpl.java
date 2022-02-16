@@ -26,9 +26,10 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
-    public void create(DeveloperDto developerDto) {
+    public DeveloperDto create(DeveloperDto developerDto) {
         Developer developer = developerConverter.fromDeveloperDtoToDeveloper(developerDto);
-        developerRepository.save(developer);
+        Developer developerCreated = developerRepository.save(developer);
+        return developerConverter.fromDeveloperToDeveloperDto(developerCreated);
     }
 
     @Override

@@ -6,7 +6,7 @@ import com.vyacheslavbasovproject.developerapitask.exceptions.DeveloperNotFoundE
 import java.util.List;
 
 public interface DeveloperService {
-    void create(DeveloperDto developerDto);
+    DeveloperDto create(DeveloperDto developerDto);
     List<DeveloperDto> readAll();
     DeveloperDto read(Long id) throws DeveloperNotFoundException;
     boolean update(DeveloperDto developerDto, Long id) throws DeveloperNotFoundException;

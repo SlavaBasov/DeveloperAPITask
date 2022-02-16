@@ -1,7 +1,6 @@
 package com.vyacheslavbasovproject.developerapitask.service.impl;
 
 import com.vyacheslavbasovproject.developerapitask.dto.DeveloperDto;
-import com.vyacheslavbasovproject.developerapitask.exceptions.DeveloperNotFoundException;
 import com.vyacheslavbasovproject.developerapitask.model.Developer;
 import com.vyacheslavbasovproject.developerapitask.repository.DeveloperRepository;
 import com.vyacheslavbasovproject.developerapitask.service.DeveloperService;
@@ -41,6 +40,8 @@ class DeveloperServiceImplTest {
     @Test
     @Disabled
     void createDeveloper_CreatedNewDeveloper() {
-//        assertEquals(developerService.create(aDeveloperDto()), aDeveloperDto());
+        DeveloperDto aDevDto = aDeveloperDto();
+        DeveloperDto developerDtoCreated = developerService.create(aDeveloperDto());
+        assertEquals(developerDtoCreated, aDevDto);
     }
 }
