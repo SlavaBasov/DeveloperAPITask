@@ -27,17 +27,6 @@ public class Developer {
     @Column(unique = true, nullable = false)
     private String email;
 
-    public Developer(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
-
-    public Developer(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
