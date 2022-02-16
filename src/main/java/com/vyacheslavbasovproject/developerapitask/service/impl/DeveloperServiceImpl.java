@@ -34,7 +34,6 @@ public class DeveloperServiceImpl implements DeveloperService {
 
     @Override
     public List<DeveloperDto> readAll() {
-        List<Developer> developers = developerRepository.findAll();
         return developerRepository.findAll().stream()
                 .map(developerConverter::fromDeveloperToDeveloperDto)
                 .collect(Collectors.toList());
@@ -42,6 +41,11 @@ public class DeveloperServiceImpl implements DeveloperService {
 
     @Override
     public DeveloperDto read(Long id) throws DeveloperNotFoundException {
+        Developer developer = find(id);
+        return developerConverter.fromDeveloperToDeveloperDto(developer);
+    }
+
+    private Developer find(Long id) throws DeveloperNotFoundException {
         Developer developer;
         Optional<Developer> developerOptional = developerRepository.findById(id);
         if(developerOptional.isPresent()){
@@ -49,13 +53,13 @@ public class DeveloperServiceImpl implements DeveloperService {
         }else {
             throw new DeveloperNotFoundException(String.format("Not found developer by id=%d",id));
         }
-        return developerConverter.fromDeveloperToDeveloperDto(developer);
+        return developer;
     }
 
     @Override
     @Transactional
     public boolean update(DeveloperDto developerDto, Long id) throws DeveloperNotFoundException {
-        Developer foundDeveloper = developerConverter.fromDeveloperDtoToDeveloper(read(id));
+        Developer foundDeveloper = find(id);
         foundDeveloper.setName(developerDto.getName());
         foundDeveloper.setEmail(developerDto.getEmail());
         return foundDeveloper.getName().equals(developerDto.getName());
