@@ -19,11 +19,11 @@ public class Developer {
 
     @NotBlank
     @Size(min=2, max = 50)
-    @Pattern(regexp = "^[a-z].+")
+    @Pattern(regexp = "^[a-zA-Z].+", message = "It must be name starting with a letter of the alphabet")
     @Column(unique = true, nullable = false)
     private String name;
 
-    @Email
+    @Email(message = "It must be a valid email address")
     @Column(unique = true, nullable = false)
     private String email;
 

@@ -1,4 +1,4 @@
-package com.vyacheslavbasovproject.developerapitask.controller;
+package com.vyacheslavbasovproject.developerapitask.controller.exceptionsHandling;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
