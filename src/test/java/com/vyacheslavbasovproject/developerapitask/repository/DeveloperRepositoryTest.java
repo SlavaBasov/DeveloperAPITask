@@ -1,20 +1,14 @@
 package com.vyacheslavbasovproject.developerapitask.repository;
 
-import com.vyacheslavbasovproject.developerapitask.exceptions.DeveloperNotFoundException;
 import com.vyacheslavbasovproject.developerapitask.model.Developer;
 import com.vyacheslavbasovproject.developerapitask.prototype.DeveloperPrototype;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@RunWith(SpringRunner.class)
 @DataJpaTest
 class DeveloperRepositoryTest {
 
