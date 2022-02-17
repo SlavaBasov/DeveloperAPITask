@@ -1,6 +1,6 @@
 package com.vyacheslavbasovproject.developerapitask.service.impl;
 
-import com.vyacheslavbasovproject.developerapitask.dto.DeveloperDto;
+import com.vyacheslavbasovproject.developerapitask.exceptions.dto.DeveloperDto;
 import com.vyacheslavbasovproject.developerapitask.model.Developer;
 import org.springframework.stereotype.Component;
 

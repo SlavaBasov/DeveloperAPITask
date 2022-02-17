@@ -1,6 +1,6 @@
 package com.vyacheslavbasovproject.developerapitask.prototype;
 
-import com.vyacheslavbasovproject.developerapitask.dto.DeveloperDto;
+import com.vyacheslavbasovproject.developerapitask.exceptions.dto.DeveloperDto;
 import com.vyacheslavbasovproject.developerapitask.model.Developer;
 
 public class DeveloperPrototype {

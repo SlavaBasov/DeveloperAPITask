@@ -3,8 +3,8 @@ Simple REST API to make CRUD operations with Developer entity
 
 **What technologies I used on the project**: Java 11, Spring Boot, Spring Data JPA, Embedded H2 Database, Hibernate Validation, Junit 5, Mokito, Poject Lombok, Git.
 
-Reference to description of the API on Open API Specification 3 (Swagger) :
-- https://app.swaggerhub.com/apis/SlavaBasov/DeveloperAPITask/1.0.0#/
+To read a Description of the API on Open API Specification 3 (Swagger) use:
+- http://localhost:8080/swagger-ui.html
 
 **Application functionality:**
 - operations to create, modify, and find the Developer entity (CRUD-operations).

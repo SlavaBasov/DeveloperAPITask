@@ -1,4 +1,4 @@
-package com.vyacheslavbasovproject.developerapitask.dto;
+package com.vyacheslavbasovproject.developerapitask.exceptions.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
