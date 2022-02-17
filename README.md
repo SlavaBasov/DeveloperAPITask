@@ -13,6 +13,4 @@ The entity contains the fields: id, name, email.
 Each Developer have a valid unique email address. No two developers have the same email address. 
 The ‘name’ Developer’s field allow names with the length of 2 to 50 and should always start with an alphabet.
 
-The database is located in the directory: DeveloperAPITask/src/main/resources/db/Developers.mv.db 
-- Username: user   
-- Password: password
+Use H2 in-memory database.
