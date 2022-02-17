@@ -1,20 +1,14 @@
 package com.vyacheslavbasovproject.developerapitask.service.impl;
 
-import com.vyacheslavbasovproject.developerapitask.dto.DeveloperDto;
+import com.vyacheslavbasovproject.developerapitask.exceptions.dto.DeveloperDto;
 import com.vyacheslavbasovproject.developerapitask.exceptions.DeveloperNotFoundException;
 import com.vyacheslavbasovproject.developerapitask.model.Developer;
 import com.vyacheslavbasovproject.developerapitask.repository.DeveloperRepository;
 import com.vyacheslavbasovproject.developerapitask.service.DeveloperService;
-import org.h2.bnf.RuleOptional;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Spy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.validation.ConstraintViolationException;

@@ -1,6 +1,6 @@
 package com.vyacheslavbasovproject.developerapitask.service;
 
-import com.vyacheslavbasovproject.developerapitask.dto.DeveloperDto;
+import com.vyacheslavbasovproject.developerapitask.exceptions.dto.DeveloperDto;
 import com.vyacheslavbasovproject.developerapitask.exceptions.DeveloperNotFoundException;
 
 import java.util.List;
